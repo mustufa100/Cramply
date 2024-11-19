@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
             <div className="bg-white rounded-full w-10 h-10 flex items-center justify-center">
               <span className="text-blue-600 font-bold text-lg">C</span>
             </div>
-            <h1 className="ml-2 text-2xl font-semibold">Campty.</h1>
+            <h1 className="ml-2 text-2xl font-semibold">Camply.</h1>
           </div>
           <p className="text-gray-200 leading-relaxed">
             We always make our customer happy by providing as many choices as possible.
@@ -55,7 +55,7 @@ const Footer: React.FC = () => {
         {/* Contact Info and Social Media Icons */}
         <div className="max-w-[150px]">
           <h3 className="text-lg font-medium mb-4">Contact Info</h3>
-          <p>Campty@gmail.com</p>
+          <p>Camply@gmail.com</p>
           <div className="flex space-x-4 mt-4">
             <FaInstagram className="text-white text-2xl" />
             <FaFacebook className="text-white text-2xl" />
@@ -66,7 +66,7 @@ const Footer: React.FC = () => {
 
       {/* Footer Bottom */}
       <div className="border-t border-gray-400 mt-8 pt-4 text-center text-gray-200 text-xs">
-        Copyright © 2022 Campty. All rights reserved.
+        Copyright © 2022 Camply. All rights reserved.
       </div>
     </footer>
   );
