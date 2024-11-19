@@ -6,10 +6,7 @@ import 'swiper/swiper-bundle.min.css'; // Import Swiper styles
 // Import Swiper core and the Mousewheel and Autoplay modules
 import SwiperCore, { Mousewheel, Autoplay } from 'swiper';
 
-// Initialize Swiper with the Mousewheel and Autoplay modules
-SwiperCore.use([Mousewheel, Autoplay]);
-
-import { useRef } from 'react'; // To use Swiper instance
+import { useRef, useEffect } from 'react'; // Import React hooks
 import Header from './components/Layout/Header';
 import Hero from './components/Sections/Hero';
 import Features from './components/Sections/Features';
@@ -20,6 +17,11 @@ import Footer from './components/Layout/Footer';
 
 export default function Home() {
   const swiperRef = useRef<SwiperCore | null>(null); // Specify SwiperCore as the ref type
+
+  useEffect(() => {
+    // Initialize Swiper modules inside useEffect
+    SwiperCore.use([Mousewheel, Autoplay]);
+  }, []);
 
   const handleAutoplayStop = () => {
     if (swiperRef.current) {
