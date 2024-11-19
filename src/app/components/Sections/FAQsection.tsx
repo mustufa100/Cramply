@@ -11,7 +11,8 @@ const FAQSection: React.FC = () => {
   });
 
   return (
-    <section id="contact"
+    <section
+      id="contact"
       ref={sectionRef}
       className="bg-gray-100 py-12 px-6 sm:px-10 lg:px-24 flex flex-col md:flex-row items-center justify-between"
     >
@@ -19,7 +20,7 @@ const FAQSection: React.FC = () => {
       <div className="md:w-1/2 mb-10 md:mb-0">
         <h2
           className={`text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 transition-all duration-700 ease-out transform ${
-            sectionInView ? "opacity-1 translate-x-0" : "opacity-0 -translate-x-10"
+            sectionInView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
           }`}
           style={{ transitionDelay: sectionInView ? "200ms" : "0ms" }}
         >
@@ -28,7 +29,7 @@ const FAQSection: React.FC = () => {
         </h2>
         <p
           className={`text-gray-600 text-sm sm:text-base lg:text-lg mb-6 transition-all duration-700 ease-out transform ${
-            sectionInView ? "opacity-1 translate-x-0" : "opacity-0 -translate-x-10"
+            sectionInView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
           }`}
           style={{ transitionDelay: sectionInView ? "400ms" : "0ms" }}
         >
@@ -37,7 +38,7 @@ const FAQSection: React.FC = () => {
         </p>
         <div
           className={`flex items-center bg-white rounded-full border border-gray-300 p-1 shadow-md max-w-md transition-all duration-700 ease-out transform ${
-            sectionInView ? "opacity-1 translate-x-0" : "opacity-0 -translate-x-10"
+            sectionInView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
           }`}
           style={{ transitionDelay: sectionInView ? "600ms" : "0ms" }}
         >
@@ -56,7 +57,7 @@ const FAQSection: React.FC = () => {
       <div className="md:w-1/2 md:pl-6 lg:pl-12">
         <p
           className={`text-gray-600 text-sm sm:text-base lg:text-lg mb-6 transition-all duration-700 ease-out transform ${
-            sectionInView ? "opacity-1 translate-x-0" : "opacity-0 translate-x-10"
+            sectionInView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
           }`}
           style={{ transitionDelay: sectionInView ? "800ms" : "0ms" }}
         >
@@ -68,7 +69,7 @@ const FAQSection: React.FC = () => {
               <li
                 key={index}
                 className={`flex items-center justify-between py-3 border-b border-gray-300 transition-all duration-700 ease-out transform ${
-                  sectionInView ? "opacity-1 translate-x-0" : "opacity-0 translate-x-10"
+                  sectionInView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
                 }`}
                 style={{ transitionDelay: sectionInView ? `${1000 + index * 300}ms` : "0ms" }}
               >

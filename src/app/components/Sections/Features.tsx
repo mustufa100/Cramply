@@ -3,38 +3,47 @@
 import React, { useEffect, useRef, useState } from "react";
 import CountUp from "react-countup";
 
+// Define the Stat interface
+interface Stat {
+  value: string;
+  label: string;
+}
+
 const Features: React.FC = () => {
   const [startCounting, setStartCounting] = useState(false);
   const featuresRef = useRef<HTMLElement | null>(null);
 
-  const stats = [
-    { value: "10", label: "Years of Experience" },
-    { value: "1000", label: "Camping Destinations" },
-    { value: "8000", label: "Happy Customers" },
-    { value: "4.2", label: "Overall Rating" },
+  // Define the stats array
+  const stats: Stat[] = [
+    { value: "10", label: "Years OF Experience" },
+    { value: "1000", label: "Camping Destination" },
+    { value: "8000", label: "Happy Customer" },
+    { value: "4000", label: "Overall Rating" },
   ];
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setStartCounting(true);
-          }
-        });
-      },
-      { threshold: 0.5 } // Trigger when 50% of the section is visible
-    );
+    if (typeof window !== 'undefined') { // Check if it's in the browser
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setStartCounting(true);
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
 
-    if (featuresRef.current) {
-      observer.observe(featuresRef.current);
-    }
-
-    return () => {
       if (featuresRef.current) {
-        observer.unobserve(featuresRef.current);
+        observer.observe(featuresRef.current);
       }
-    };
+
+      return () => {
+        if (featuresRef.current) {
+          observer.unobserve(featuresRef.current);
+        }
+      };
+    }
   }, []);
 
   return (
@@ -46,7 +55,7 @@ const Features: React.FC = () => {
       {/* Statistics Section */}
       <div className="bg-blue-500 py-12">
         <div className="container mx-auto px-6 lg:px-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          {stats.map((stat, index) => (
+          {stats.map((stat: Stat, index: number) => (
             <div key={index} className="text-white">
               <h3 className="text-4xl md:text-5xl font-extrabold">
                 {startCounting ? (

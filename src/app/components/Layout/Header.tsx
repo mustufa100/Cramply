@@ -42,8 +42,9 @@ const Header: React.FC = () => {
         animate="visible"
         variants={logoVariants}
       >
-        <span className="text-blue-600 font-bold text-lg bg-white rounded-full w-10 h-10 flex items-center justify-center">C</span>
-        Camply<span className="text-black">.</span>
+{/* Replace any apostrophes with &apos; or &#39; */}
+<span className="text-blue-600 font-bold text-lg bg-white rounded-full w-10 h-10 flex items-center justify-center">C</span>
+       <a href="/"> Camply<span className="text-black">.</span></a>
       </motion.div>
 
       {/* Toggle Button for Mobile */}

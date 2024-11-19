@@ -47,17 +47,18 @@ const Hero: React.FC = () => {
 
             {/* Image */}
             <motion.div
-                className="mt-8 lg:mt-0 w-full max-w-xs sm:max-w-sm lg:max-w-lg lg:mr-10"
-                initial="hidden"
-                animate="visible"
-                variants={imageVariants}
-            >
-                <img
-                    src="../images/mob2.png"
-                    alt="Mobile App Preview"
-                    className="w-full drop-shadow-lg"
-                />
-            </motion.div>
+    className="mt-8 lg:mt-0 w-full max-w-xs sm:max-w-sm lg:max-w-lg lg:mr-10"
+    initial="hidden"
+    animate="visible"
+    variants={imageVariants}
+>
+    <img
+        src="/images/mob2.png" // Use absolute path to images in production
+        alt="Mobile App Preview"
+        className="w-full drop-shadow-lg"
+    />
+</motion.div>
+
         </section>
     );
 };
