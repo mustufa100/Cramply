@@ -6,7 +6,7 @@ import 'swiper/swiper-bundle.min.css'; // Import Swiper styles
 // Import Swiper core and the Mousewheel and Autoplay modules
 import SwiperCore, { Mousewheel, Autoplay } from 'swiper';
 
-import { useRef, useEffect } from 'react'; // Import React hooks
+import { useRef } from 'react'; // Import React hooks
 import Header from './components/Layout/Header';
 import Hero from './components/Sections/Hero';
 import Features from './components/Sections/Features';
@@ -15,13 +15,16 @@ import Testimonials from './components/Sections/Testimonials';
 import FAQSection from './components/Sections/FAQsection';
 import Footer from './components/Layout/Footer';
 
-export default function Home() {
-  const swiperRef = useRef<SwiperCore | null>(null); // Specify SwiperCore as the ref type
+// Create a custom hook to initialize SwiperCore.use
+function useSwiperModules() {
+  SwiperCore.use([Mousewheel, Autoplay]);
+}
 
-  useEffect(() => {
-    // Initialize Swiper modules inside useEffect
-    SwiperCore.use([Mousewheel, Autoplay]);
-  }, []);
+export default function Home() {
+  // Call the custom hook to initialize Swiper modules
+  useSwiperModules();
+
+  const swiperRef = useRef<SwiperCore | null>(null); // Specify SwiperCore as the ref type
 
   const handleAutoplayStop = () => {
     if (swiperRef.current) {
