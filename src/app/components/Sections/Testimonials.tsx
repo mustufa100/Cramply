@@ -218,7 +218,7 @@ const Testimonials: React.FC = () => {
   };
 
   return (
-    <section id="testimonials" className="bg-gray-100 py-16">
+    <section id="blog" className="bg-gray-100 py-16">
       {/* Section Header */}
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold text-gray-800 leading-tight">
