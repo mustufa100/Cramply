@@ -19,27 +19,24 @@ const FAQSection: React.FC = () => {
       {/* Left Side - Title, Subtitle, and Email Input */}
       <div className="md:w-1/2 mb-10 md:mb-0">
         <h2
-          className={`text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 transition-all duration-700 ease-out transform ${
-            sectionInView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
-          }`}
+          className={`text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 transition-all duration-700 ease-out transform ${sectionInView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
+            }`}
           style={{ transitionDelay: sectionInView ? "200ms" : "0ms" }}
         >
           Got A Question <br />
           For Campty<span className="text-orange-500">?</span>
         </h2>
         <p
-          className={`text-gray-600 text-sm sm:text-base lg:text-lg mb-6 transition-all duration-700 ease-out transform ${
-            sectionInView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
-          }`}
+          className={`text-gray-600 text-sm sm:text-base lg:text-lg mb-6 transition-all duration-700 ease-out transform ${sectionInView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
+            }`}
           style={{ transitionDelay: sectionInView ? "400ms" : "0ms" }}
         >
           If there are questions you want to ask, <br className="hidden sm:block" /> we will answer
           all your questions.
         </p>
         <div
-          className={`flex items-center bg-white rounded-full border border-gray-300 p-1 shadow-md max-w-md transition-all duration-700 ease-out transform ${
-            sectionInView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
-          }`}
+          className={`flex items-center bg-white rounded-full border border-gray-300 p-1 shadow-md max-w-md transition-all duration-700 ease-out transform ${sectionInView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
+            }`}
           style={{ transitionDelay: sectionInView ? "600ms" : "0ms" }}
         >
           <input
@@ -56,9 +53,8 @@ const FAQSection: React.FC = () => {
       {/* Right Side - FAQ List */}
       <div className="md:w-1/2 md:pl-6 lg:pl-12">
         <p
-          className={`text-gray-600 text-sm sm:text-base lg:text-lg mb-6 transition-all duration-700 ease-out transform ${
-            sectionInView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
-          }`}
+          className={`text-gray-600 text-sm sm:text-base lg:text-lg mb-6 transition-all duration-700 ease-out transform ${sectionInView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
+            }`}
           style={{ transitionDelay: sectionInView ? "800ms" : "0ms" }}
         >
           Maybe your question has been answered, check this out.
@@ -68,9 +64,8 @@ const FAQSection: React.FC = () => {
             (faq, index) => (
               <li
                 key={index}
-                className={`flex items-center justify-between py-3 border-b border-gray-300 transition-all duration-700 ease-out transform ${
-                  sectionInView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
-                }`}
+                className={`flex items-center justify-between py-3 border-b border-gray-300 transition-all duration-700 ease-out transform ${sectionInView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
+                  }`}
                 style={{ transitionDelay: sectionInView ? `${1000 + index * 300}ms` : "0ms" }}
               >
                 <span className="text-gray-800 font-medium text-sm sm:text-base lg:text-lg">

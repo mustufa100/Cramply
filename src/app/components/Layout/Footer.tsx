@@ -5,7 +5,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-blue-600 text-white py-12">
       <div className="container mx-auto px-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 text-sm">
-        
+
         {/* Logo and Description */}
         <div className="md:col-span-2 max-w-xs">
           <div className="flex items-center mb-4">
