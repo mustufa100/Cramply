@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import Image from 'next/image';
+import { useInView } from 'react-intersection-observer';
 
 const Testimonials: React.FC = () => {
   const testimonials = [
@@ -89,8 +90,20 @@ const Testimonials: React.FC = () => {
     );
   };
 
+  // Animation trigger on scroll into view
+  const { ref: sectionRef, inView: sectionInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
-    <section id="blog" className="bg-gray-100 py-16">
+    <section
+      id="blog"
+      ref={sectionRef}
+      className={`bg-gray-100 py-16 transition-all duration-700 transform ${
+        sectionInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
+      }`}
+    >
       {/* Section Header */}
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold text-gray-800 leading-tight">
@@ -120,7 +133,14 @@ const Testimonials: React.FC = () => {
         {currentTestimonials.map((testimonial, index) => (
           <div
             key={index}
-            className="flex flex-col items-start text-left space-y-4 bg-gray-100 p-6"
+            className={`flex flex-col items-start text-left space-y-4 bg-gray-100 p-6 transition-all duration-700 transform ${
+              sectionInView
+                ? 'opacity-100 translate-x-0'
+                : 'opacity-0 translate-x-10'
+            }`}
+            style={{
+              transitionDelay: sectionInView ? `${(index + 1) * 100}ms` : '0ms',
+            }}
           >
             {/* Quotation Marks */}
             <div className="text-blue-500 text-6xl font-bold leading-none">“</div>

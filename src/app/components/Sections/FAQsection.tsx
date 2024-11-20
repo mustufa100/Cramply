@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from "react";
 import { FiArrowRight } from "react-icons/fi";
@@ -44,7 +44,12 @@ const FAQSection: React.FC = () => {
             placeholder="Enter Your Email"
             className="flex-1 px-4 py-2 outline-none rounded-l-full text-gray-700 text-sm sm:text-base"
           />
-          <button className="bg-black text-white px-4 sm:px-6 py-2 rounded-full font-semibold text-sm sm:text-base">
+          {/* Submit Button with Left-to-Right Animation */}
+          <button
+            className={`bg-black text-white px-4 sm:px-6 py-2 rounded-full font-semibold text-sm sm:text-base transition-all duration-700 ease-out transform ${sectionInView ? "translate-x-0" : "-translate-x-full"
+              }`}
+            style={{ transitionDelay: sectionInView ? "800ms" : "0ms" }}
+          >
             Submit
           </button>
         </div>
