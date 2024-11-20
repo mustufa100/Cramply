@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const CommunitySection: React.FC = () => {
   return (
@@ -23,7 +24,15 @@ const CommunitySection: React.FC = () => {
         {/* Image Section */}
         <div className="relative lg:w-1/2 px-4 sm:px-8 flex justify-center">
           {/* Main Avatar */}
-          <div className="w-20 sm:w-28 h-20 sm:h-28 bg-blue-100 rounded-full flex items-center justify-center relative z-10 shadow-md">
+          <motion.div
+            animate={{ y: [0, -15, 0] }}
+            transition={{
+              duration: 1.2,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="w-20 sm:w-28 h-20 sm:h-28 bg-blue-100 rounded-full flex items-center justify-center relative z-10 shadow-md"
+          >
             <Image
               src="/images/main-avatar.webp"
               alt="Main Avatar"
@@ -34,10 +43,18 @@ const CommunitySection: React.FC = () => {
             <div className="absolute -top-4 left-12 bg-white px-2 py-1 rounded-full shadow-md text-xs sm:text-sm">
               Welcome!!
             </div>
-          </div>
+          </motion.div>
 
-          {/* Avatar 1 */}
-          <div className="absolute left-4 top-16 w-10 sm:w-14 h-10 sm:h-14 bg-orange-200 rounded-full flex items-center justify-center shadow-md">
+          {/* Animated Avatars */}
+          <motion.div
+            animate={{ y: [0, -15, 0] }}
+            transition={{
+              duration: 1.3,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute left-4 top-16 w-10 sm:w-14 h-10 sm:h-14 bg-orange-200 rounded-full flex items-center justify-center shadow-md"
+          >
             <Image
               src="/images/avatar-1.png"
               alt="Avatar 1"
@@ -45,10 +62,17 @@ const CommunitySection: React.FC = () => {
               height={32}
               className="w-8 sm:w-10 h-8 sm:h-10"
             />
-          </div>
+          </motion.div>
 
-          {/* Avatar 2 */}
-          <div className="absolute right-4 top-16 w-10 sm:w-14 h-10 sm:h-14 bg-pink-200 rounded-full flex items-center justify-center shadow-md">
+          <motion.div
+            animate={{ y: [0, -15, 0] }}
+            transition={{
+              duration: 1.4,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute right-4 top-16 w-10 sm:w-14 h-10 sm:h-14 bg-pink-200 rounded-full flex items-center justify-center shadow-md"
+          >
             <Image
               src="/images/avatar-2.webp"
               alt="Avatar 2"
@@ -56,10 +80,17 @@ const CommunitySection: React.FC = () => {
               height={32}
               className="w-8 sm:w-10 h-8 sm:h-10"
             />
-          </div>
+          </motion.div>
 
-          {/* Avatar 3 */}
-          <div className="absolute bottom-8 left-4 w-10 sm:w-14 h-10 sm:h-14 bg-green-200 rounded-full flex items-center justify-center shadow-md">
+          <motion.div
+            animate={{ y: [0, -15, 0] }}
+            transition={{
+              duration: 1.6,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute bottom-8 left-4 w-10 sm:w-14 h-10 sm:h-14 bg-green-200 rounded-full flex items-center justify-center shadow-md"
+          >
             <Image
               src="/images/avatar-3.png"
               alt="Avatar 3"
@@ -67,10 +98,17 @@ const CommunitySection: React.FC = () => {
               height={32}
               className="w-8 sm:w-10 h-8 sm:h-10"
             />
-          </div>
+          </motion.div>
 
-          {/* Avatar 4 */}
-          <div className="absolute bottom-8 right-4 w-10 sm:w-14 h-10 sm:h-14 bg-yellow-200 rounded-full flex items-center justify-center shadow-md">
+          <motion.div
+            animate={{ y: [0, -15, 0] }}
+            transition={{
+              duration: 1.8,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute bottom-8 right-4 w-10 sm:w-14 h-10 sm:h-14 bg-yellow-200 rounded-full flex items-center justify-center shadow-md"
+          >
             <Image
               src="/images/avatar-1.png"
               alt="Avatar 4"
@@ -78,18 +116,7 @@ const CommunitySection: React.FC = () => {
               height={32}
               className="w-8 sm:w-10 h-8 sm:h-10"
             />
-          </div>
-
-          {/* Social Media Icons */}
-          <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-6 sm:w-8 h-6 sm:h-8 flex items-center justify-center shadow-md">
-            <Image src="/images/twitter-icon.png" alt="Twitter" width={24} height={24} />
-          </div>
-          <div className="absolute bottom-2 left-1/4 transform -translate-x-1/2 w-6 sm:w-8 h-6 sm:h-8 flex items-center justify-center shadow-md">
-            <Image src="/images/instagram-icon.png" alt="Instagram" width={24} height={24} />
-          </div>
-          <div className="absolute bottom-2 right-1/4 transform -translate-x-1/2 w-6 sm:w-8 h-6 sm:h-8 flex items-center justify-center shadow-md">
-            <Image src="/images/tiktok-icon.png" alt="TikTok" width={24} height={24} />
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

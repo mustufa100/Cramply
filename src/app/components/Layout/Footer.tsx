@@ -1,18 +1,55 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { FaInstagram, FaFacebook, FaTwitter } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 const Footer: React.FC = () => {
+  const [isFooterInView, setIsFooterInView] = useState(false);
+  const footerRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsFooterInView(true); // Set to true when footer comes into view
+          }
+        });
+      },
+      {
+        threshold: 0.5, // Trigger when 50% of the footer is visible
+      }
+    );
+
+    if (footerRef.current) {
+      observer.observe(footerRef.current);
+    }
+
+    return () => {
+      if (footerRef.current) {
+        observer.unobserve(footerRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <footer className="bg-blue-600 text-white py-8 w-full">
+    <footer
+      ref={footerRef}
+      className="bg-blue-600 text-white py-8 w-full"
+    >
       {/* Original Footer (Visible on medium and larger screens) */}
       <div
         className="hidden sm:grid container mx-auto px-4 gap-6 
         grid-cols-1 sm:grid-cols-2 lg:grid-cols-6"
       >
-        {/* Logo and Description */}
-        <div className="md:col-span-2">
+        {/* Logo and Description (Animated) */}
+        <motion.div
+          initial={{ x: -100, opacity: 0 }}
+          animate={isFooterInView ? { x: 0, opacity: 1 } : {}} // Trigger animation when in view
+          transition={{ duration: 0.4, ease: 'easeOut' }}
+          className="md:col-span-2"
+        >
           <div className="flex items-center mb-4">
             <div className="bg-white rounded-full w-10 h-10 flex items-center justify-center">
               <span className="text-blue-600 font-bold text-lg">C</span>
@@ -22,10 +59,15 @@ const Footer: React.FC = () => {
           <p className="text-gray-200 leading-relaxed">
             We always make our customer happy by providing as many choices as possible.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Company Links */}
-        <div className="max-w-full">
+        {/* Company Links (Animated from bottom) */}
+        <motion.div
+          initial={{ y: 100, opacity: 0 }}
+          animate={isFooterInView ? { y: 0, opacity: 1 } : {}}
+          transition={{ duration: 0.4, delay: 0.1, ease: 'easeOut' }}
+          className="max-w-full"
+        >
           <h3 className="text-lg font-medium mb-2">Company</h3>
           <ul className="space-y-2">
             <li>About Us</li>
@@ -33,20 +75,30 @@ const Footer: React.FC = () => {
             <li>News</li>
             <li>FAQ</li>
           </ul>
-        </div>
+        </motion.div>
 
-        {/* Resources Links */}
-        <div className="max-w-full">
+        {/* Resources Links (Animated from bottom) */}
+        <motion.div
+          initial={{ y: 100, opacity: 0 }}
+          animate={isFooterInView ? { y: 0, opacity: 1 } : {}}
+          transition={{ duration: 0.3, delay: 0.2, ease: 'easeOut' }}
+          className="max-w-full"
+        >
           <h3 className="text-lg font-medium mb-2">Resources</h3>
           <ul className="space-y-2">
             <li>Events</li>
             <li>Promo</li>
             <li>Req Demo</li>
           </ul>
-        </div>
+        </motion.div>
 
-        {/* Support Links */}
-        <div className="max-w-full">
+        {/* Support Links (Animated from bottom) */}
+        <motion.div
+          initial={{ y: 100, opacity: 0 }}
+          animate={isFooterInView ? { y: 0, opacity: 1 } : {}}
+          transition={{ duration: 0.4, delay: 0.5, ease: 'easeOut' }}
+          className="max-w-full"
+        >
           <h3 className="text-lg font-medium mb-2">Support</h3>
           <ul className="space-y-2">
             <li>Account</li>
@@ -55,10 +107,15 @@ const Footer: React.FC = () => {
             <li>Contact Us</li>
             <li>Accessibility</li>
           </ul>
-        </div>
+        </motion.div>
 
-        {/* Contact Info and Social Media Icons */}
-        <div className="max-w-full">
+        {/* Contact Info and Social Media Icons (Animated from bottom) */}
+        <motion.div
+          initial={{ y: 100, opacity: 0 }}
+          animate={isFooterInView ? { y: 0, opacity: 1 } : {}}
+          transition={{ duration: 0.4, delay: 0.6, ease: 'easeOut' }}
+          className="max-w-full"
+        >
           <h3 className="text-lg font-medium mb-2">Contact Info</h3>
           <p>Camply@gmail.com</p>
           <div className="flex space-x-4 mt-4">
@@ -66,83 +123,23 @@ const Footer: React.FC = () => {
             <FaFacebook className="text-white text-xl" />
             <FaTwitter className="text-white text-xl" />
           </div>
-        </div>
+        </motion.div>
       </div>
 
-      {/* Small Screens Footer */}
-      <div className="block sm:hidden container mx-auto px-4">
-        {/* Logo and Description */}
-        <div className="mb-4">
-          <div className="flex items-center mb-4">
-            <div className="bg-white rounded-full w-10 h-10 flex items-center justify-center">
-              <span className="text-blue-600 font-bold text-lg">C</span>
-            </div>
-            <h1 className="ml-2 text-2xl font-semibold">Camply.</h1>
-          </div>
-          <p className="text-gray-200 leading-relaxed">
-            We always make our customer happy by providing as many choices as possible.
-          </p>
-        </div>
-
-        {/* Links Section */}
-        <div className="flex flex-col space-y-6">
-          {/* Company and Resources */}
-          <div className="flex justify-between">
-            <div>
-              <h3 className="text-lg font-medium mb-2">Company</h3>
-              <ul className="space-y-2">
-                <li>About Us</li>
-                <li>Features</li>
-                <li>News</li>
-                <li>FAQ</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-medium mb-2">Resources</h3>
-              <ul className="space-y-2">
-                <li>Events</li>
-                <li>Promo</li>
-                <li>Req Demo</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-medium mb-2">Support</h3>
-              <ul className="space-y-2">
-                <li>Account</li>
-                <li>Support Center</li>
-                <li>Feedback</li>
-                <li>Contact Us</li>
-                <li>Accessibility</li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Support and Contact Info */}
-          <div className="flex justify-between">
-            <div>
-              <h3 className="text-lg font-medium mb-2">Contact</h3>
-              <p>Camply@gmail.com</p>
-              <div className="flex space-x-4 mt-4">
-                <FaInstagram className="text-white text-xl" />
-                <FaFacebook className="text-white text-xl" />
-                <FaTwitter className="text-white text-xl" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Footer Bottom */}
-      <div className="border-t border-gray-400 mt-6 pt-4 text-center text-gray-200 text-xs">
+      {/* Footer Bottom (Animated from right) */}
+      <motion.div
+        initial={{ x: 100, opacity: 0 }}
+        animate={isFooterInView ? { x: 0, opacity: 1 } : {}}
+        transition={{ duration: 0.5, delay: 1, ease: 'easeOut' }}
+        className="border-t border-gray-400 mt-6 pt-4 text-center text-gray-200 text-xs"
+      >
         Copyright © 2022 Camply. All rights reserved.
-      </div>
+      </motion.div>
     </footer>
   );
 };
 
 export default Footer;
-
-
 
 
 // import React from 'react';

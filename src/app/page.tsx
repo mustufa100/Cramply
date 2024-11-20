@@ -56,10 +56,10 @@ export default function Home() {
         spaceBetween={0}
         slidesPerView={1}
         mousewheel={true}
-        speed={300}
+        speed={400}
         loop={true}
         autoplay={{
-          delay: 1000,
+          delay:1500,
           disableOnInteraction: false,
         }}
         onSwiper={(swiper) => {

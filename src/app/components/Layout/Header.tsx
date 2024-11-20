@@ -20,12 +20,12 @@ const Header: React.FC = () => {
 
     const navVariants = {
         hidden: { x: '100%', opacity: 0 },
-        visible: { x: 0, opacity: 1, transition: { duration: 0.3, ease: 'easeInOut' } },
+        visible: { x: 0, opacity: 1, transition: { duration: 0.6, ease: 'easeInOut' } },
     };
 
     const logoVariants = {
         hidden: { x: '-100%', opacity: 0 },
-        visible: { x: 0, opacity: 1, transition: { duration: 0.3, ease: 'easeInOut' } },
+        visible: { x: 0, opacity: 1, transition: { duration: 0.6, ease: 'easeInOut' } },
     };
 
     // Return early if not client-side
