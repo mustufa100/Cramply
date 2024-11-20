@@ -26,9 +26,9 @@ const Hero: React.FC = () => {
 
   return (
     <section
-   id="home"
-   className="bg-gray-100 min-h-[80vh] lg:min-h-screen flex flex-col lg:flex-row items-center justify-between px-6 sm:px-10 lg:px-20 py-10 lg:py-0 text-center lg:text-left"
->
+      id="home"
+      className="bg-gray-100 min-h-[80vh] lg:min-h-screen flex flex-col lg:flex-row items-center justify-between px-6 sm:px-10 lg:px-20 py-10 lg:py-0 text-center lg:text-left"
+    >
 
       {/* Text Content */}
       <motion.div

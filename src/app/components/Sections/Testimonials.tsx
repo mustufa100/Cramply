@@ -100,9 +100,8 @@ const Testimonials: React.FC = () => {
     <section
       id="blog"
       ref={sectionRef}
-      className={`bg-gray-100 py-16 transition-all duration-700 transform ${
-        sectionInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
-      }`}
+      className={`bg-gray-100 py-16 transition-all duration-700 transform ${sectionInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
+        }`}
     >
       {/* Section Header */}
       <div className="text-center mb-12">
@@ -133,11 +132,10 @@ const Testimonials: React.FC = () => {
         {currentTestimonials.map((testimonial, index) => (
           <div
             key={index}
-            className={`flex flex-col items-start text-left space-y-4 bg-gray-100 p-6 transition-all duration-700 transform ${
-              sectionInView
+            className={`flex flex-col items-start text-left space-y-4 bg-gray-100 p-6 transition-all duration-700 transform ${sectionInView
                 ? 'opacity-100 translate-x-0'
                 : 'opacity-0 translate-x-10'
-            }`}
+              }`}
             style={{
               transitionDelay: sectionInView ? `${(index + 1) * 100}ms` : '0ms',
             }}

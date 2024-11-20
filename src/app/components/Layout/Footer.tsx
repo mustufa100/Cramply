@@ -109,69 +109,69 @@ const Footer: React.FC = () => {
 
       {/* Small Screens Footer (Static) */}
       <div className="block sm:hidden container mx-auto px-4">
-  <div className="flex flex-col space-y-6 pb-0">
-    {/* Logo */}
-    <div className="mb-4">
-      <div className="flex items-center mb-4">
-        <div className="bg-white rounded-full w-10 h-10 flex items-center justify-center">
-          <span className="text-blue-600 font-bold text-lg">C</span>
-        </div>
-        <h1 className="ml-2 text-2xl font-semibold">Camply.</h1>
-      </div>
-      <p className="text-gray-200 leading-relaxed">
-        We always make our customer happy by providing as many choices as possible.
-      </p>
-    </div>
+        <div className="flex flex-col space-y-6 pb-0">
+          {/* Logo */}
+          <div className="mb-4">
+            <div className="flex items-center mb-4">
+              <div className="bg-white rounded-full w-10 h-10 flex items-center justify-center">
+                <span className="text-blue-600 font-bold text-lg">C</span>
+              </div>
+              <h1 className="ml-2 text-2xl font-semibold">Camply.</h1>
+            </div>
+            <p className="text-gray-200 leading-relaxed">
+              We always make our customer happy by providing as many choices as possible.
+            </p>
+          </div>
 
-    {/* Footer Links */}
-    <div className="flex flex-col space-y-6">
-      <div className="grid grid-cols-2 gap-x-4 gap-y-6">
-        {/* Adjust each section */}
-        <div>
-          <h3 className="text-lg font-medium mb-2">Company</h3>
-          <ul className="space-y-2">
-            <li>About Us</li>
-            <li>Features</li>
-            <li>News</li>
-            <li>FAQ</li>
-          </ul>
-        </div>
+          {/* Footer Links */}
+          <div className="flex flex-col space-y-6">
+            <div className="grid grid-cols-2 gap-x-4 gap-y-6">
+              {/* Adjust each section */}
+              <div>
+                <h3 className="text-lg font-medium mb-2">Company</h3>
+                <ul className="space-y-2">
+                  <li>About Us</li>
+                  <li>Features</li>
+                  <li>News</li>
+                  <li>FAQ</li>
+                </ul>
+              </div>
 
-        <div>
-          <h3 className="text-lg font-medium mb-2">Resources</h3>
-          <ul className="space-y-2">
-            <li>Events</li>
-            <li>Promo</li>
-            <li>Req Demo</li>
-          </ul>
-        </div>
+              <div>
+                <h3 className="text-lg font-medium mb-2">Resources</h3>
+                <ul className="space-y-2">
+                  <li>Events</li>
+                  <li>Promo</li>
+                  <li>Req Demo</li>
+                </ul>
+              </div>
 
-        <div>
-          <h3 className="text-lg font-medium mb-2">Support</h3>
-          <ul className="space-y-2">
-            <li>Account</li>
-            <li>Support Center</li>
-            <li>Feedback</li>
-            <li>Contact Us</li>
-            <li>Accessibility</li>
-          </ul>
-        </div>
+              <div>
+                <h3 className="text-lg font-medium mb-2">Support</h3>
+                <ul className="space-y-2">
+                  <li>Account</li>
+                  <li>Support Center</li>
+                  <li>Feedback</li>
+                  <li>Contact Us</li>
+                  <li>Accessibility</li>
+                </ul>
+              </div>
 
-        <div>
-          <h3 className="text-lg font-medium mb-2">Contact</h3>
-          <p>Camply@gmail.com</p>
-          <div className="flex space-x-4 mt-4">
-            <FaInstagram className="text-white text-xl" />
-            <FaFacebook className="text-white text-xl" />
-            <FaTwitter className="text-white text-xl" />
+              <div>
+                <h3 className="text-lg font-medium mb-2">Contact</h3>
+                <p>Camply@gmail.com</p>
+                <div className="flex space-x-4 mt-4">
+                  <FaInstagram className="text-white text-xl" />
+                  <FaFacebook className="text-white text-xl" />
+                  <FaTwitter className="text-white text-xl" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
 
-  
+
     </footer>
   );
 };
