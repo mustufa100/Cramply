@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import Image from 'next/image';
 
@@ -51,7 +51,24 @@ const Testimonials: React.FC = () => {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const testimonialsPerPage = 3;
+  const [testimonialsPerPage, setTestimonialsPerPage] = useState(3); // Default for large screens
+
+  useEffect(() => {
+    const updateTestimonialsPerPage = () => {
+      if (window.innerWidth < 768) {
+        setTestimonialsPerPage(1); // One testimonial for small screens
+      } else {
+        setTestimonialsPerPage(3); // Three testimonials for larger screens
+      }
+    };
+
+    updateTestimonialsPerPage(); // Run once on mount
+    window.addEventListener('resize', updateTestimonialsPerPage);
+
+    return () => {
+      window.removeEventListener('resize', updateTestimonialsPerPage);
+    };
+  }, []);
 
   const currentTestimonials = testimonials.slice(
     currentIndex,
@@ -121,7 +138,7 @@ const Testimonials: React.FC = () => {
                 alt={testimonial.name}
                 width={64}
                 height={64}
-                className="rounded-full"
+                className="rounded-full w-16 h-16 sm:w-24 sm:h-24" // Responsive sizes
               />
               {/* User Name, Role, and Ratings */}
               <div className="flex flex-col">
@@ -146,4 +163,3 @@ const Testimonials: React.FC = () => {
 };
 
 export default Testimonials;
-
