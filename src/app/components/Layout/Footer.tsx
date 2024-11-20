@@ -1,53 +1,37 @@
 'use client';
 
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import { FaInstagram, FaFacebook, FaTwitter } from 'react-icons/fa';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 
 const Footer: React.FC = () => {
-  const [isFooterInView, setIsFooterInView] = useState(false);
-  const footerRef = useRef<HTMLElement | null>(null);
+  // Create refs for each animated section
+  const logoRef = useRef(null);
+  const companyRef = useRef(null);
+  const resourcesRef = useRef(null);
+  const contactRef = useRef(null);
+  const copyrightRef = useRef(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsFooterInView(true); // Set to true when footer comes into view
-          }
-        });
-      },
-      {
-        threshold: 0.5, // Trigger when 50% of the footer is visible
-      }
-    );
-
-    if (footerRef.current) {
-      observer.observe(footerRef.current);
-    }
-
-    return () => {
-      if (footerRef.current) {
-        observer.unobserve(footerRef.current);
-      }
-    };
-  }, []);
+  // Use the useInView hook for scroll detection
+  const isLogoInView = useInView(logoRef, { once: true });
+  const isCompanyInView = useInView(companyRef, { once: true });
+  const isResourcesInView = useInView(resourcesRef, { once: true });
+  const isContactInView = useInView(contactRef, { once: true });
+  const isCopyrightInView = useInView(copyrightRef, { once: true });
 
   return (
-    <footer
-      ref={footerRef}
-      className="bg-blue-600 text-white py-8 w-full"
-    >
-      {/* Original Footer (Visible on medium and larger screens) */}
+    <footer className="bg-blue-600 text-white py-8 w-full">
+      {/* Desktop Footer */}
       <div
         className="hidden sm:grid container mx-auto px-4 gap-6 
         grid-cols-1 sm:grid-cols-2 lg:grid-cols-6"
       >
-        {/* Logo and Description (Animated) */}
+        {/* Logo and Description */}
         <motion.div
+          ref={logoRef}
           initial={{ x: -100, opacity: 0 }}
-          animate={isFooterInView ? { x: 0, opacity: 1 } : {}} // Trigger animation when in view
-          transition={{ duration: 0.4, ease: 'easeOut' }}
+          animate={isLogoInView ? { x: 0, opacity: 1 } : {}}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
           className="md:col-span-2"
         >
           <div className="flex items-center mb-4">
@@ -61,11 +45,12 @@ const Footer: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* Company Links (Animated from bottom) */}
+        {/* Company Links */}
         <motion.div
+          ref={companyRef}
           initial={{ y: 100, opacity: 0 }}
-          animate={isFooterInView ? { y: 0, opacity: 1 } : {}}
-          transition={{ duration: 0.4, delay: 0.1, ease: 'easeOut' }}
+          animate={isCompanyInView ? { y: 0, opacity: 1 } : {}}
+          transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
           className="max-w-full"
         >
           <h3 className="text-lg font-medium mb-2">Company</h3>
@@ -77,11 +62,12 @@ const Footer: React.FC = () => {
           </ul>
         </motion.div>
 
-        {/* Resources Links (Animated from bottom) */}
+        {/* Resources Links */}
         <motion.div
+          ref={resourcesRef}
           initial={{ y: 100, opacity: 0 }}
-          animate={isFooterInView ? { y: 0, opacity: 1 } : {}}
-          transition={{ duration: 0.3, delay: 0.2, ease: 'easeOut' }}
+          animate={isResourcesInView ? { y: 0, opacity: 1 } : {}}
+          transition={{ duration: 0.6, delay: 0.4, ease: 'easeOut' }}
           className="max-w-full"
         >
           <h3 className="text-lg font-medium mb-2">Resources</h3>
@@ -92,28 +78,12 @@ const Footer: React.FC = () => {
           </ul>
         </motion.div>
 
-        {/* Support Links (Animated from bottom) */}
+        {/* Contact Info */}
         <motion.div
+          ref={contactRef}
           initial={{ y: 100, opacity: 0 }}
-          animate={isFooterInView ? { y: 0, opacity: 1 } : {}}
-          transition={{ duration: 0.4, delay: 0.5, ease: 'easeOut' }}
-          className="max-w-full"
-        >
-          <h3 className="text-lg font-medium mb-2">Support</h3>
-          <ul className="space-y-2">
-            <li>Account</li>
-            <li>Support Center</li>
-            <li>Feedback</li>
-            <li>Contact Us</li>
-            <li>Accessibility</li>
-          </ul>
-        </motion.div>
-
-        {/* Contact Info and Social Media Icons (Animated from bottom) */}
-        <motion.div
-          initial={{ y: 100, opacity: 0 }}
-          animate={isFooterInView ? { y: 0, opacity: 1 } : {}}
-          transition={{ duration: 0.4, delay: 0.6, ease: 'easeOut' }}
+          animate={isContactInView ? { y: 0, opacity: 1 } : {}}
+          transition={{ duration: 0.6, delay: 0.6, ease: 'easeOut' }}
           className="max-w-full"
         >
           <h3 className="text-lg font-medium mb-2">Contact Info</h3>
@@ -126,20 +96,88 @@ const Footer: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Footer Bottom (Animated from right) */}
+      {/* Footer Bottom */}
       <motion.div
+        ref={copyrightRef}
         initial={{ x: 100, opacity: 0 }}
-        animate={isFooterInView ? { x: 0, opacity: 1 } : {}}
-        transition={{ duration: 0.5, delay: 1, ease: 'easeOut' }}
-        className="border-t border-gray-400 mt-6 pt-4 text-center text-gray-200 text-xs"
+        animate={isCopyrightInView ? { x: 0, opacity: 1 } : {}}
+        transition={{ duration: 0.6, delay: 0.8, ease: 'easeOut' }}
+        className="hidden sm:block border-t border-gray-400 mt-6 pt-4 text-center text-gray-200 text-xs"
       >
         Copyright © 2022 Camply. All rights reserved.
       </motion.div>
+
+      {/* Small Screens Footer (Static) */}
+      <div className="block sm:hidden container mx-auto px-4">
+  <div className="flex flex-col space-y-6 pb-0">
+    {/* Logo */}
+    <div className="mb-4">
+      <div className="flex items-center mb-4">
+        <div className="bg-white rounded-full w-10 h-10 flex items-center justify-center">
+          <span className="text-blue-600 font-bold text-lg">C</span>
+        </div>
+        <h1 className="ml-2 text-2xl font-semibold">Camply.</h1>
+      </div>
+      <p className="text-gray-200 leading-relaxed">
+        We always make our customer happy by providing as many choices as possible.
+      </p>
+    </div>
+
+    {/* Footer Links */}
+    <div className="flex flex-col space-y-6">
+      <div className="grid grid-cols-2 gap-x-4 gap-y-6">
+        {/* Adjust each section */}
+        <div>
+          <h3 className="text-lg font-medium mb-2">Company</h3>
+          <ul className="space-y-2">
+            <li>About Us</li>
+            <li>Features</li>
+            <li>News</li>
+            <li>FAQ</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="text-lg font-medium mb-2">Resources</h3>
+          <ul className="space-y-2">
+            <li>Events</li>
+            <li>Promo</li>
+            <li>Req Demo</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="text-lg font-medium mb-2">Support</h3>
+          <ul className="space-y-2">
+            <li>Account</li>
+            <li>Support Center</li>
+            <li>Feedback</li>
+            <li>Contact Us</li>
+            <li>Accessibility</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="text-lg font-medium mb-2">Contact</h3>
+          <p>Camply@gmail.com</p>
+          <div className="flex space-x-4 mt-4">
+            <FaInstagram className="text-white text-xl" />
+            <FaFacebook className="text-white text-xl" />
+            <FaTwitter className="text-white text-xl" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
     </footer>
   );
 };
 
 export default Footer;
+
 
 
 // import React from 'react';
