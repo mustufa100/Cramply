@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
     visible: {
       x: 0,
       opacity: 1,
-      transition: { duration: 0.8, ease: 'easeInOut', delay: 0.3 },
+      transition: { duration: 0.3, ease: 'easeInOut', delay: 0.3 },
     },
   };
 
@@ -20,7 +20,7 @@ const Hero: React.FC = () => {
     visible: {
       x: 0,
       opacity: 1,
-      transition: { duration: 0.8, ease: 'easeInOut', delay: 0.5 },
+      transition: { duration: 0.3, ease: 'easeInOut', delay: 0.4 },
     },
   };
 

@@ -21,7 +21,7 @@ const FAQSection: React.FC = () => {
         <h2
           className={`text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 transition-all duration-700 ease-out transform ${sectionInView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
             }`}
-          style={{ transitionDelay: sectionInView ? "200ms" : "0ms" }}
+          style={{ transitionDelay: sectionInView ? "100ms" : "0ms" }}
         >
           Got A Question <br />
           For Campty<span className="text-orange-500">?</span>
@@ -29,7 +29,7 @@ const FAQSection: React.FC = () => {
         <p
           className={`text-gray-600 text-sm sm:text-base lg:text-lg mb-6 transition-all duration-700 ease-out transform ${sectionInView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
             }`}
-          style={{ transitionDelay: sectionInView ? "400ms" : "0ms" }}
+          style={{ transitionDelay: sectionInView ? "100ms" : "0ms" }}
         >
           If there are questions you want to ask, <br className="hidden sm:block" /> we will answer
           all your questions.
@@ -37,7 +37,7 @@ const FAQSection: React.FC = () => {
         <div
           className={`flex items-center bg-white rounded-full border border-gray-300 p-1 shadow-md max-w-md transition-all duration-700 ease-out transform ${sectionInView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
             }`}
-          style={{ transitionDelay: sectionInView ? "600ms" : "0ms" }}
+          style={{ transitionDelay: sectionInView ? "100ms" : "0ms" }}
         >
           <input
             type="email"
@@ -48,7 +48,7 @@ const FAQSection: React.FC = () => {
           <button
             className={`bg-black text-white px-4 sm:px-6 py-2 rounded-full font-semibold text-sm sm:text-base transition-all duration-700 ease-out transform ${sectionInView ? "translate-x-0" : "-translate-x-full"
               }`}
-            style={{ transitionDelay: sectionInView ? "800ms" : "0ms" }}
+            style={{ transitionDelay: sectionInView ? "100ms" : "0ms" }}
           >
             Submit
           </button>
@@ -60,7 +60,7 @@ const FAQSection: React.FC = () => {
         <p
           className={`text-gray-600 text-sm sm:text-base lg:text-lg mb-6 transition-all duration-700 ease-out transform ${sectionInView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
             }`}
-          style={{ transitionDelay: sectionInView ? "800ms" : "0ms" }}
+          style={{ transitionDelay: sectionInView ? "100ms" : "0ms" }}
         >
           Maybe your question has been answered, check this out.
         </p>
@@ -71,7 +71,7 @@ const FAQSection: React.FC = () => {
                 key={index}
                 className={`flex items-center justify-between py-3 border-b border-gray-300 transition-all duration-700 ease-out transform ${sectionInView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
                   }`}
-                style={{ transitionDelay: sectionInView ? `${1000 + index * 300}ms` : "0ms" }}
+                style={{ transitionDelay: sectionInView ? `${800 + index * 100}ms` : "0ms" }}
               >
                 <span className="text-gray-800 font-medium text-sm sm:text-base lg:text-lg">
                   {faq}

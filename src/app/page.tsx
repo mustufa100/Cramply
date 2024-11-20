@@ -56,7 +56,7 @@ export default function Home() {
         spaceBetween={0}
         slidesPerView={1}
         mousewheel={true}
-        speed={500}
+        speed={300}
         loop={true}
         autoplay={{
           delay: 1000,
