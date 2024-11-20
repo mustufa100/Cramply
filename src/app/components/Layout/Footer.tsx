@@ -1,13 +1,15 @@
+'use client';
+
 import React from 'react';
 import { FaInstagram, FaFacebook, FaTwitter } from 'react-icons/fa';
 
 const Footer: React.FC = () => {
   return (
     <footer className="bg-blue-600 text-white py-8 w-full">
+      {/* Original Footer (Visible on medium and larger screens) */}
       <div
-        className="container mx-auto px-4 grid gap-6 
-        grid-cols-1 sm:grid-cols-2 lg:grid-cols-6
-        overflow-auto"
+        className="hidden sm:grid container mx-auto px-4 gap-6 
+        grid-cols-1 sm:grid-cols-2 lg:grid-cols-6"
       >
         {/* Logo and Description */}
         <div className="md:col-span-2">
@@ -67,6 +69,69 @@ const Footer: React.FC = () => {
         </div>
       </div>
 
+      {/* Small Screens Footer */}
+      <div className="block sm:hidden container mx-auto px-4">
+        {/* Logo and Description */}
+        <div className="mb-4">
+          <div className="flex items-center mb-4">
+            <div className="bg-white rounded-full w-10 h-10 flex items-center justify-center">
+              <span className="text-blue-600 font-bold text-lg">C</span>
+            </div>
+            <h1 className="ml-2 text-2xl font-semibold">Camply.</h1>
+          </div>
+          <p className="text-gray-200 leading-relaxed">
+            We always make our customer happy by providing as many choices as possible.
+          </p>
+        </div>
+
+        {/* Links Section */}
+        <div className="flex flex-col space-y-6">
+          {/* Company and Resources */}
+          <div className="flex justify-between">
+            <div>
+              <h3 className="text-lg font-medium mb-2">Company</h3>
+              <ul className="space-y-2">
+                <li>About Us</li>
+                <li>Features</li>
+                <li>News</li>
+                <li>FAQ</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-medium mb-2">Resources</h3>
+              <ul className="space-y-2">
+                <li>Events</li>
+                <li>Promo</li>
+                <li>Req Demo</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-medium mb-2">Support</h3>
+              <ul className="space-y-2">
+                <li>Account</li>
+                <li>Support Center</li>
+                <li>Feedback</li>
+                <li>Contact Us</li>
+                <li>Accessibility</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Support and Contact Info */}
+          <div className="flex justify-between">
+            <div>
+              <h3 className="text-lg font-medium mb-2">Contact</h3>
+              <p>Camply@gmail.com</p>
+              <div className="flex space-x-4 mt-4">
+                <FaInstagram className="text-white text-xl" />
+                <FaFacebook className="text-white text-xl" />
+                <FaTwitter className="text-white text-xl" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Footer Bottom */}
       <div className="border-t border-gray-400 mt-6 pt-4 text-center text-gray-200 text-xs">
         Copyright © 2022 Camply. All rights reserved.
@@ -76,9 +141,6 @@ const Footer: React.FC = () => {
 };
 
 export default Footer;
-
-
-
 
 
 
