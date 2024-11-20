@@ -47,10 +47,11 @@ const Features: React.FC = () => {
 
   return (
     <section
-      id="about"
-      ref={featuresRef}
-      className="relative z-10 mt-20 md:mt-24 bg-gray-100"
-    >
+    id="about"
+    ref={featuresRef}
+    className="relative z-10 mt-15 bg-gray-100"
+ >
+ 
       <div className="bg-blue-500 py-12">
         <div className="container mx-auto px-6 lg:px-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-center">
           {stats.map((stat: Stat, index: number) => (

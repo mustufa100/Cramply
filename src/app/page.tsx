@@ -42,40 +42,47 @@ export default function Home() {
     <div>
       {/* Swiper container with mousewheel and autoplay control */}
       <Swiper
-        direction="vertical" // Change scroll direction to vertical
-        spaceBetween={0} // Adjust space between slides
-        slidesPerView={1} // Show one slide at a time
-        mousewheel={true} // Enable mousewheel control
-        speed={800} // Speed of transition
-        loop={true} // Enable looping
-        autoplay={{
-          delay: 3000, // Delay between transitions (in milliseconds)
-          disableOnInteraction: false, // Continue autoplay even after user interaction
-        }}
-        onSwiper={(swiper) => {
-          swiperRef.current = swiper; // Assign the Swiper instance
-        }}
-        style={{ height: '100vh', overflow: 'hidden' }} // Ensure full viewport height and hide overflow
+         direction="vertical"
+         spaceBetween={0}
+         slidesPerView={1}
+         mousewheel={true}
+         speed={400}
+         loop={true}
+         autoplay={{
+           delay: 1000,
+           disableOnInteraction: false,
+         }}
+         style={{
+           height: '100vh',
+           overflow: 'hidden',
+           margin: 0,
+           padding: 0,
+         }}
         onTouchStart={handleAutoplayStop} // Stop autoplay on touch/click
         onTouchEnd={handleAutoplayStart} // Resume autoplay on release
         onMouseDown={handleAutoplayStop} // Stop autoplay on mouse click
         onMouseUp={handleAutoplayStart} // Resume autoplay on mouse release
       >
-        <SwiperSlide>
-          <Header />
-          <Hero />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Features />
-          <CommunitySection />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Testimonials />
-        </SwiperSlide>
-        <SwiperSlide>
-          <FAQSection />
-          <Footer />
-        </SwiperSlide>
+        <SwiperSlide style={{ display: 'flex', flexDirection: 'column', height: '100vh', margin: 0, padding: 0 }}>
+  <Header />
+  <Hero />
+</SwiperSlide>
+<SwiperSlide style={{ display: 'flex', flexDirection: 'column', height: '100vh', margin: 0, padding: 0 }}>
+  <Features />
+  <CommunitySection />
+</SwiperSlide>
+<SwiperSlide style={{ display: 'flex', flexDirection: 'column', height: '100vh', margin: 0, padding: 0 }}>
+  <Testimonials />
+</SwiperSlide>
+<SwiperSlide className="flex flex-col h-screen">
+  <div className="flex-grow">
+    <FAQSection />
+  </div>
+  <div className="flex-shrink-0">
+    <Footer />
+  </div>
+</SwiperSlide>
+
       </Swiper>
     </div>
   );
